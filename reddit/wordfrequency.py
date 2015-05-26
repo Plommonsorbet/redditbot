@@ -3,7 +3,7 @@ __author__ = 'kasi'
 import matplotlib.pyplot as plt
 from collections import OrderedDict
 
-
+# calculates the frequency of words based on their length and plots a graph of the words.
 class WordFrequencyCounter(object):
 
     characters_to_remove = ',.?!'
@@ -29,8 +29,7 @@ class WordFrequencyCounter(object):
 
         self.word_count = OrderedDict(sorted(self.word_count.items()))
 
-        print self.word_count
-
+        # create graph
         plt.bar(self.word_count.keys(), self.word_count.values(), alpha=0.4, align='center', label=self.word_count.keys())
         plt.ylabel('times used')
         plt.xlabel('letters in word')

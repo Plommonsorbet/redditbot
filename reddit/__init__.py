@@ -10,4 +10,4 @@ from wordfrequency import WordFrequencyCounter
 from connections import Client
 
 
-client = Client('holdmynip')
+client = Client()
