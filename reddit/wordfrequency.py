@@ -12,6 +12,7 @@ class WordFrequencyCounter(object):
         self.top_posts = top_posts
         self.word_count = {}
 
+    # calculates frequency in data collected.
     def get_frequency(self):
 
         for i in range(0, 30):
@@ -30,12 +31,12 @@ class WordFrequencyCounter(object):
 
         print self.word_count
 
-        plt.bar([key for key in self.word_count.keys()], self.word_count.values(), alpha=0.4)
-
-        plt.xticks(self.word_count.keys())
-
+        plt.bar(self.word_count.keys(), self.word_count.values(), alpha=0.4, align='center', label=self.word_count.keys())
+        plt.ylabel('times used')
+        plt.xlabel('letters in word')
         plt.savefig('frequency_piechart')
 
+    # removes characters that are in the string characters to remove and new lines.
     def filter_message(self, post_message):
 
         return ''.join([character for character in post_message.replace('/n', '') if character not in self.characters_to_remove]).split()

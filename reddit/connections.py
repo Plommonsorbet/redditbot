@@ -18,6 +18,7 @@ class Client(object):
         self.access_token = None
         self.top_posts = None
 
+    # logs in, requests comments for the class WordFrequencyCounter
     def get_posts(self):
 
         client_auth = requests.auth.HTTPBasicAuth(config['reddit_id'], config['reddit_secret'])
@@ -34,6 +35,7 @@ class Client(object):
 
         return WordFrequencyCounter(self.top_posts)
 
+    # retrieves the bodies of the comments in a subreddit.
     def request_comments(self):
 
         headers = {'User-Agent': config['reddit_boot'],
